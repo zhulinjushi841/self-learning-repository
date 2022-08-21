@@ -6,3 +6,15 @@ Uppercase letter X for random variable.
 Lowercase letter x for an observed value.
 
 
+概率密度Probability Density Function(PDF)
+PDF provides a relative likehood that the value of the random variable would equal that sample.
+
+专门术语(Terminologies)
+Terminology:state and action
+state 状态 (this frame)    action a 属于 {left,right,up}
+
+Terminology:policy 策略
+policy的意思就是根据观测到的状态然后作出决策来控制agent的运动
+强化学习学习的内容就是policy这个函数，只要有了这个policy函数，就可以让它自动操作marry打游戏了
+Upon observing state S = s,the agent's action A can be random.
+
