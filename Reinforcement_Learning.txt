@@ -1,0 +1,6 @@
+强化学习(Reinforcement Learning)
+
+随机变量(Random Variable)
+Random Variable:a variable whose values depend on outcomes of a random event
+Uppercase letter X for random variable
+
