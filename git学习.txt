@@ -103,7 +103,7 @@ git reset --hard bae123	#回退到某个版本回退点之前的所有信息
 git reset --hard origin/master	#将本地的状态回退到和远程的保持一致
 
 
-啊啊发达
+
 
 
 
