@@ -34,3 +34,70 @@ git pull
 git merge <branch>
 
 
+2.git工作区、暂存区和版本库
+工作区：就是在电脑里能看到的实际目录。
+暂存区：英文叫stage或者index。一般存放在.git目录下的index文件(.git/index)中，所以
+把暂存区有时候也叫做索引(index)。
+版本库：工作区有一个隐藏目录.git,这个不算是工作区，而是Git的版本库。
+
+当对工作区修改(或新增)的文件执行git add命令时，暂存区的目录树被更新，同时工作区修改
+(或新增)的文件内容被写入到对象库中的一个新的对象中，而该对象的ID被记录在暂存区的文件索引中。
+
+当执行提交操作(git commit)时，暂存区的目录树写到版本库(对象库)中，master分支会做相应的
+更新。即master指向的目录树就是提交暂存区的目录树。
+
+当执行git rm --cached <file>命令时，会从暂存区删除文件，工作区则不会作出改变。
+
+
+
+3.git基本操作
+Git的工作就是创建和保存项目的快照以及与之后的快照进行对比。
+Git的常用命令包括：
+git clone、git push、git add、git commit、git checkout、git pull
+
+创建仓库命令
+git init	初始化仓库
+git clone	拷贝一份远程仓库，也就是下载一个项目
+
+提交与修改
+Git的工作就是创建和保存项目的快照与之后的快照进行对比。
+命令		说明
+git add 	添加文件到暂存区
+git status	查看仓库当前的状态，显示有变更的文件
+git diff	比较文件的不同，即暂存区和工作区的差异
+git rm		将文件从暂存区和工作区中删除
+git mv	移动或者重命名工作区文件
+git commit	提交暂存区到本地仓库
+git reset	回退版本
+
+提交日志
+命令		说明
+git log	查看历史提交记录
+git blame <file> 以列表形式查看指定文件的历史修改记录
+
+远程操作
+命令		说明
+git remote	远程仓库操作
+git fetch	从远程获取代码库
+git pull	下载远程代码并合并
+git push	上传远程代码并合并
+
+
+
+git reset命令
+git reset命令用于回退版本，可以指定退回某一次提交的版本
+git reset命令语法格式如下：
+git reset [--soft/--mixed/--hard] [HEAD]
+
+--mixed为默认，可以不用带该参数，用于重置暂存区的文件与上一次的提交(commit)保持一致。
+工作区的文件内容保持不变。
+git reset [HEAD]
+实例：
+git reset HEAD^	#回退到所有内容到上一个版本
+
+
+
+
+
+
+
