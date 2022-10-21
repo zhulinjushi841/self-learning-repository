@@ -1,4 +1,4 @@
-分支与合并
+1.分支与合并
 分支在本地完成，速度快，要创建一个新的分支，需要使用branch命令。
 git branch test
 
@@ -14,3 +14,23 @@ git merge test
 
 如果想要删除分支，使用-d标识。
 git branch -d test
+
+在创建仓库的时候，master是默认的分支。在其他分支上进行开发，完成后再将
+它们合并到当前分支上。
+创建一个叫 feature的分支并切换过去：
+git checkout -b feature
+
+切换回master主分支：
+git checkout master
+
+除非将该分支推送到远端仓库，否则该分支就是不为他人所见的
+git push origin <branch>
+
+更新与合并
+要更新本地仓库至最新改动，执行：
+git pull
+以在工作目录中获取(fetch)并 合并(merge)远端的改动。
+要合并其他分支至当前的分支(例如master)，执行：
+git merge <branch>
+
+
