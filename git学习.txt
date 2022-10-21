@@ -8,4 +8,9 @@ git checkout test
 
 第一个分支或主分支，被称为"master"。
 对其他分支的更改不会反应在主分支上。如果想将更改提交到主分支，则需要
-切换回master分支
+切换回master分支，然后使用合并。
+git checkout master
+git merge test
+
+如果想要删除分支，使用-d标识。
+git branch -d test
