@@ -121,6 +121,10 @@ directory：本地目录
 git的设置使用git config命令。
 显示当前的git配置信息：
 git config --list
+设置提交代码时的用户信息：
+git config --global user.name "jerome"
+git config --global user.email test@qq.com
+如果去掉--global参数则只对当前仓库有效。
 
 
 
