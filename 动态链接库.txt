@@ -1,0 +1,4 @@
+动态链接库
+在Windows下的扩展名为.dll，dynamic link library
+在Linux下的扩展名为.so，shared object
+动态链接的一大优势就是允许我们单独更新动态库本身而不必重新编译其他的组件
