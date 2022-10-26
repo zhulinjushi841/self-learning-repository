@@ -84,7 +84,7 @@ git push	上传远程代码并合并
 
 
 
-git reset命令
+3.1 git reset命令
 git reset命令用于回退版本，可以指定退回某一次提交的版本
 git reset命令语法格式如下：
 git reset [--soft/--mixed/--hard] [HEAD]
@@ -102,13 +102,13 @@ git reset --soft HEAD~3	#回退到上上上一个版本
 git reset --hard bae123	#回退到某个版本回退点之前的所有信息
 git reset --hard origin/master	#将本地的状态回退到和远程的保持一致
 
-Git创建仓库
+3.2 Git创建仓库
 Git使用git init命令来初始化一个Git仓库，Git许多命令需要在Git的仓库中运行，
 所以git init是使用Git的第一个命令。
 在执行完git init命令后，Git仓库会生成一个.git目录，该目录包含了资源的所有元数据，其他的
 项目目录保持不变。
 
-git clone
+3.3 git clone
 我们使用git clone从现有的Git仓库中拷贝项目
 克隆仓库的命令格式为：
 git clone <repo>
@@ -116,8 +116,11 @@ git clone <repo> <directory>
 参数说明：
 repo：Git仓库
 directory：本地目录
+在Github上，一个项目实际上只有一个clone链接
+因此，如果想要从某个特定分支上clone代码：
+git clone -b 分支名字 xxx（链接）
 
-配置
+3.4 git config配置
 git的设置使用git config命令。
 显示当前的git配置信息：
 git config --list
