@@ -93,7 +93,7 @@ git push	上传远程代码并合并
 
 
 
-3.1 git reset命令
+##### 3.1 git reset命令
 git reset命令用于回退版本，可以指定退回某一次提交的版本
 git reset命令语法格式如下：
 git reset [--soft/--mixed/--hard] [HEAD]
