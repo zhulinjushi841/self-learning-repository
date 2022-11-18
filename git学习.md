@@ -129,13 +129,13 @@ git reset --hard origin/master	#将本地的状态回退到和远程的保持一
 
 此时会进入到默认vim编辑器中，修改注释完毕后保存即可。
 
-3.2 Git创建仓库
+##### 3.2 Git创建仓库
 Git使用git init命令来初始化一个Git仓库，Git许多命令需要在Git的仓库中运行，
 所以git init是使用Git的第一个命令。
 在执行完git init命令后，Git仓库会生成一个.git目录，该目录包含了资源的所有元数据，其他的
 项目目录保持不变。
 
-3.3 git clone
+##### 3.3 git clone
 我们使用git clone从现有的Git仓库中拷贝项目
 克隆仓库的命令格式为：
 git clone <repo>
@@ -147,7 +147,7 @@ directory：本地目录
 因此，如果想要从某个特定分支上clone代码：
 git clone -b 分支名字 xxx（链接）
 
-3.4 git config配置
+##### 3.4 git config配置
 git的设置使用git config命令。
 显示当前的git配置信息：
 git config --list
@@ -156,7 +156,21 @@ git config --global user.name "jerome"
 git config --global user.email test@qq.com
 如果去掉--global参数则只对当前仓库有效。
 
+##### 3.5 git fetch
+git fetch命令从远端仓库中下载commits,files,refs到本地仓库中。
+当需要查看其他人的工作的时候，就需要使用fetch命令。
+这个操作会让用户看到远端仓库的所有提交进展，但是fetch命令并不会强迫远端的变更合并到仓库中。
+Git会对本地内容与fetch下载的内容进行隔离，这就保证了fetch命令更新的远端变更不会对本地正在进行的开发工作产生任何影响。
+如果想查看fetch命令下载的内容，需要显式地通过 git checkout 命令检出希望查看的版本。
 
+因此，在不想让远端仓库的版本合并到本地之前，但仍然希望可以查看一下远端版本都做了哪些变更的时候，fetch命令就是一种安全的解决方案。
+可以使用 git diff 命令查看fetch下载内容与当前工作区的变更区别。
+
+##### 3.6 创建.gitignore
+如果存在不想提交到远程仓库的文件，需要在工作区创建.gitignore文件。
+
+    touch .gitignore
+    
 
 
 
