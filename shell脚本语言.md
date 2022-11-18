@@ -2,7 +2,7 @@
  * @Author: Jerome 841682441@qq.com
  * @Date: 2022-11-17 22:28:56
  * @LastEditors: Jerome 841682441@qq.com
- * @LastEditTime: 2022-11-18 11:05:21
+ * @LastEditTime: 2022-11-18 13:54:28
  * @FilePath: \自学知识\shell脚本语言.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -148,7 +148,60 @@ echo命令用于向窗口输出文本。
 单字符串的任何字符都会原样输出，单引号字符串中的变量是无效的；
 单引号字符串中不能出现单独一个的单引号(对单引号使用转义符后也不行)，但是可以成对出现，作为字符串拼接使用。
 
+**双引号**
+双引号的优点：
+1)双引号里可以有变量
+2)双引号里可以出现转义字符
 
+**拼接字符串**
+
+**获取字符串长度**
+
+    string="abcd"
+    echo ${#string}     #输出 4
+
+**提取子字符串**
+
+    string="runoob is a great site"
+    echo ${string:1:4}  #输出unoo
+注意：第一个字符的索引值为0。
+
+**查找子字符串**
+查找字符i或者o的位置(哪个字符先出现就计算哪个)：
+
+    string="runoob is a great site"
+    echo `expr index "$string" io`      # 输出 4
+
+注意：以上脚本中`是反引号，而不是单引号'。
+
+**Shell注释**
+
+以\#开头的行就是注释，会被解释器忽略。
+如果遇到大量代码需要临时注释起来，但每一行加\#太过费力，所以可以把这一段需要注释的代码使用一对花括号括起来，定义为一个函数，由于没有地方会调用这个函数，这块代码不会被执行。所以就达到了注释的作用。
+
+#### Shell传递参数
+我们可以在执行Shell脚本的时候，向脚本传递参数，脚本内获取参数的格式为：$n。其中n代表着一个数字，1位执行脚本的第一个参数，2位执行脚本的第二个参数，以此类推。
+
+
+#### Shell流程控制
+和Java、PHP等语言不一样，sh的流程控制不可为空。
+
+**if else**
+**fi**
+
+if语句语法格式：
+
+    if condition
+    then
+        command1
+        command2
+        ...
+        commandN
+    fi
+
+写成一行(适用于终端命令提示符):
+
+    if [$(ps -ef | grep -c "ssh") -gt ]; then echo "true"; fi
 
 ***
 #### Shell数组
