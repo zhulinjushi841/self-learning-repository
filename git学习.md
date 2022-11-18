@@ -98,18 +98,36 @@ git reset命令用于回退版本，可以指定退回某一次提交的版本
 git reset命令语法格式如下：
 git reset [--soft/--mixed/--hard] [HEAD]
 
+    git reset HEAD 
+
+后面什么都不跟的，就是上一次add 里面的内容全部撤销。
+
+    git reset HEAD XXX 
+
+后面跟文件名，就是对某个文件进行撤销。
+
 --mixed为默认，可以不用带该参数，用于重置暂存区的文件与上一次的提交(commit)保持一致。
-工作区的文件内容保持不变。
+不删除工作区改动代码，撤销commit，并撤销git
+ add .，操作这个为默认参数，也就是说：
+ 使用git reset --mixed HEAD^ 和 git reset HEAD^的效果是一样的。
 git reset [HEAD]
 实例：
 git reset HEAD^	#回退到所有内容到上一个版本
 
 --soft参数用于回退到某个版本：
 git reset --soft HEAD~3	#回退到上上上一个版本
+--soft 不删除工作区改动代码，撤销commit，不撤销git add . 
 
 --hard参数撤销工作区中所有未提交的修改内容，将暂存区与工作区都回退到之前的所有信息提交：
 git reset --hard bae123	#回退到某个版本回退点之前的所有信息
 git reset --hard origin/master	#将本地的状态回退到和远程的保持一致
+--hard 删除工作区改动代码，撤销commit，撤销git add .
+完成这项操作后，就恢复到了指定版本commit时的状态。
+如果commit的注释写错了，只是想改一下注释，只需要：
+
+    git commit --amend 
+
+此时会进入到默认vim编辑器中，修改注释完毕后保存即可。
 
 3.2 Git创建仓库
 Git使用git init命令来初始化一个Git仓库，Git许多命令需要在Git的仓库中运行，
