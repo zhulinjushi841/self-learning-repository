@@ -1,0 +1,67 @@
+<!--
+ * @Author: Jerome 841682441@qq.com
+ * @Date: 2022-11-18 21:08:18
+ * @LastEditors: Jerome 841682441@qq.com
+ * @LastEditTime: 2022-11-18 21:39:53
+ * @FilePath: \self-learning-repository\dB相关概念.md
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+#### dB相关概念
+
+3dB在功率图或者误码率图中经常出现，下降3dB指的是功率下降一半，3dB点值得就是半功率点。
+
++3dB指的是增大为原来的2倍，-3dB指的是下降为原来的1/2。
+
+    dB=10lg(P1/P0)
+
+dB表示的是功率P1相对于参考频率P0的大小关系，如果P1是P0的2倍，则计算数值为3dB。如果P1是P0的一般，则计算数值为-3dB。
+dB表示的是一个相对值，是一个纯计数单位：对于功率，dB=10\*lg(A/B)。对于电压或者电流，dB=20\*lg(A/B)。
+
+**注意：**
+对于dB来说，基本上存在口诀：
++3dB，表示的是功率增加为2倍；+10dB，表示的是功率增加为10倍。
+-3dB，表示的是功率减小为1/2；-10dB，表示功率减小为1/10。
+dB实际上是一个相对值，它的使命就是将一个很大或者很小的数，用一个较为简短的形式表达出来。
+
+
+#### dBm,dBw
+dBm、dBw就是把dB公式中的参考功率P0分别换为1mW、1W。
+也即：
+
+    dBm=10lg(P1/1mW)
+    dBw=10lg(P1/1W)
+
+1mW、1W均是确定的值，因此dBm、dBw都可以表示功率的绝对值。
+
+**注意：1W=30dBm**
+30是基准，等于1W整。
+30是基准，加10乘10，减3除2。
+
+例如：
+计算44dBm=?W
+44dBm=30dBm+10dB+10dB-3dB-3dB
+=1W×10×10×1/2×1/2=25W
+
+这里需要注意，等式右侧除了30dBm，其他的拆分项都要用dB表示。也就是说，用一个dBx减去另一个dBx，得到的结果用dB表示。
+
+如果A的功率为46dBm，B的功率为40dBm，则可以说A比B大6dB。
+如果A天线为12dBd,B天线为14dBd，则可以说A比B小3dB。
+
+dB是相对值，dBm、dBw是绝对值。
+例如46dB表示P1是P0的4万倍，46dBm表示P1的值为40W，虽然符号中仅仅差了一个m，但是代表的含义却完全不同。
+
+#### dBi、dBd、dBc
+dBi、dBd、dBc的计算方法与dB的计算方法完全一样，表示的还是功率的相对值。不同的是，它们的参考基准不同，也即分母上的参考功率P0所代表的含义不同。
+
+    dBx                     参考基准
+    dBi(Decibe-Isotropic)   全方位性天线(iostropic antenna)
+    dBd(Decibe-Dipole)      偶极子天线(dipole antenna)
+    dBc(Decibe-Carrier)     载波(carrier)
+
+
+一般来说，表示同一个增益，用dBi表示出来比dBd表示出来要大2.15。这个差值是两种天线的不同方向性导致的。
+
+此外，dB家族不仅可以表示功率的增益和损耗，还可以表示电压、电流、音频等，大家具体场景具体应用。
+
+需要注意的是，对于功率的增益，我们是用10lg(P0/P1),对于电压和电流的增益，需要使用20lg(Vo/Vi)、20lg(Io/Ii)。
+
