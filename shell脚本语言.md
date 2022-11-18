@@ -2,7 +2,7 @@
  * @Author: Jerome 841682441@qq.com
  * @Date: 2022-11-17 22:28:56
  * @LastEditors: Jerome 841682441@qq.com
- * @LastEditTime: 2022-11-18 13:54:28
+ * @LastEditTime: 2022-11-18 13:59:30
  * @FilePath: \自学知识\shell脚本语言.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -214,7 +214,7 @@ Shell数组用括号来表示，元素用“空格”符号分隔开，语法格
 
 实例1：
 
-    #!bin.bash
+    #!/bin/bash
     
     my_array=(A B "C" D)
 
