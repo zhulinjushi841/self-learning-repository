@@ -1,40 +1,49 @@
-1.分支与合并
-分支在本地完成，速度快，要创建一个新的分支，需要使用branch命令。
-git branch test
+##### 1.分支与合并 <br>
+##### 1.1 分支<br>
+分支在本地完成，速度快，要创建一个新的分支，需要使用branch命令。<br>
 
-branch命令不会将我们带入分支，只是创建一个新分支。所以需要使用checkout命令
-来更改分支。
-git checkout test
+    git branch test
+
+branch命令不会将我们带入分支，只是创建一个新分支。所以需要使用*checkout* 命令来更改分支。<br>
+
+    git checkout test
 
 第一个分支或主分支，被称为"master"。
-对其他分支的更改不会反应在主分支上。如果想将更改提交到主分支，则需要
-切换回master分支，然后使用合并。
-git checkout master
-git merge test
+对其他分支的更改不会反应在主分支上。如果想将更改提交到主分支，则需要切换回master分支，然后使用合并。<br>
+
+    git checkout master
+    git merge test
 
 如果想要删除分支，使用-d标识。
-git branch -d test
+
+    git branch -d test
 
 在创建仓库的时候，master是默认的分支。在其他分支上进行开发，完成后再将
 它们合并到当前分支上。
 创建一个叫 feature的分支并切换过去：
-git checkout -b feature
+
+    git checkout -b feature
 
 切换回master主分支：
-git checkout master
 
-除非将该分支推送到远端仓库，否则该分支就是不为他人所见的
-git push origin <branch>
+    git checkout master
 
-更新与合并
+除非将该分支推送到远端仓库，否则该分支就是不为他人所见的：
+
+    git push origin <branch>
+
+##### 1.2 更新与合并
 要更新本地仓库至最新改动，执行：
-git pull
+
+    git pull
+
 以在工作目录中获取(fetch)并 合并(merge)远端的改动。
 要合并其他分支至当前的分支(例如master)，执行：
-git merge <branch>
+
+    git merge <branch>
 
 
-2.git工作区、暂存区和版本库
+##### 2.git工作区、暂存区和版本库
 工作区：就是在电脑里能看到的实际目录。
 暂存区：英文叫stage或者index。一般存放在.git目录下的index文件(.git/index)中，所以
 把暂存区有时候也叫做索引(index)。
@@ -50,7 +59,7 @@ git merge <branch>
 
 
 
-3.git基本操作
+##### 3.git基本操作
 Git的工作就是创建和保存项目的快照以及与之后的快照进行对比。
 Git的常用命令包括：
 git clone、git push、git add、git commit、git checkout、git pull

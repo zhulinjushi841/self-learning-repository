@@ -2,7 +2,7 @@
  * @Author: Jerome 841682441@qq.com
  * @Date: 2022-11-17 22:28:56
  * @LastEditors: Jerome 841682441@qq.com
- * @LastEditTime: 2022-11-17 23:54:59
+ * @LastEditTime: 2022-11-18 11:05:21
  * @FilePath: \自学知识\shell脚本语言.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -50,6 +50,11 @@ shell和终端的关系就是shell是一个程序，一个二进制可运行可�
 
 其中root代表的是用户名，host指的是登录到的主机，~表示当前目录，$表示的是命令提示符(如果登录用户是root就显示为#)，表示等待输入命令。
 
+**脚本语言是为了缩短传统的编写-编译-链接-运行过程而创建的计算机编程语言，在很多方面，高级编程语言和脚本语言之间相互交叉，二者之间没有明确的界限。**
+**一个脚本可以使得原本要用键盘进行的交互式操作自动化。一个Shell脚本主要由原本需要在命令行输入的命令组成，或者在一个文本编辑器中，用户可以使用脚本把常用的操作组合成一组序列。主要用来书写这种脚本的语言叫做脚本语言。**
+**很多脚本语言实际上已经超过简单的用户命令序列的指令，还可以编写更复杂的程序。**
+***
+
 #### 3 Shell环境
 
 Shell和JavaScript、PHP变成一样，只需要有一个能编写代码的文本编辑器和一个能解释执行的脚本解释器就可以了。
@@ -62,7 +67,7 @@ Shell和JavaScript、PHP变成一样，只需要有一个能编写代码的文�
 
 打开文本编辑器，用vi/vim命令来创建文件，新建一个文件/test.sh，/注意扩展名为.sh。
 
-    #！bin/bash
+    #！/bin/bash
     echo "Hello World!"
 
 ___#!是约定标记，他告诉系统该脚本需要使用什么解释器来执行，也即使用哪一种Shell。___
@@ -81,7 +86,71 @@ echo命令用于向窗口输出文本。
     /bin/bash test.sh
     /bin/php test.php
 
+#### Shell变量
+定义变量时，变量名不加美元符号($,在PHP语言中需要)
 
+    your_name="runoob.com"
+
+**注意：** 
+(1)变量名和等号之间不能有空格。
+(2)命名只能使用英文字母，数字或者下划线，首个字符不能以数字开头。
+(3)不能使用标点符号。
+(4)不能使用bash里的关键字。
+
+除了显式地直接赋值，还可以用语句给变量赋值，如：
+
+    for file in 'ls/etc`
+    或
+    for file in ${ls/etc}
+
+以上语句将/etc下目录的文件名循环出来。
+
+**使用变量**
+使用一个定义过的变量，只需要在变量前加美元符号即可，如：
+
+    your_name="zhangsan"
+    echo $your_name
+    echo ${your_name}
+
+变量名外面的花括号是可选的，加不加都行，加花括号是为了帮助解释器识别变量的边界，比如下面这种情况：
+
+    for skill in Ada Coffee Action Java; do
+        echo "I am good at ${skill}Script"
+    done
+
+如果不给skill变量加花括号，写成echo "I am good at $skillScipt",解释器就会把\$skillScript当成一个变量，其值为空，因此最好给每个变量都加上或括号，这是一个良好的编程习惯。
+
+**只读变量**
+使用readonly命令可以将命令变为只读变量，只读变量的值不能被改变。
+
+    name="zhangsan"
+    readonly name
+    name="lisi" #执行此步骤程序会报错
+
+**删除变量**
+使用unset命令可以删除变量
+
+    unset variable_name
+
+变量被删除后不能再次使用。unset命令不能删除只读变量。
+
+**变量类型**
+运行shell时，会同时存在三种变量：
+1)局部变量：在脚本或者命令中定义，仅在当前shell实例中有效，其他shell启动的程序不能访问局部变量。
+2)环境变量：所有程序包括shell启动的程序，都能访问环境变量，有些程序需要环境变量来保证其正常运行。必要时shell脚本可以定义环境变量。
+3)shell变量：shell变量是由shell程序设置的特殊变量。shell变量中一部分是环境变量，一部分是局部变量，这些变量保证了shell的正常运行。
+
+**Shell字符串**
+字符串是shell编程中最常用也最有用的数据类型，可以用单引号，双引号，也可以不使用引号。
+
+**单引号**
+单引号字符串的限制：
+单字符串的任何字符都会原样输出，单引号字符串中的变量是无效的；
+单引号字符串中不能出现单独一个的单引号(对单引号使用转义符后也不行)，但是可以成对出现，作为字符串拼接使用。
+
+
+
+***
 #### Shell数组
 
 数组中可以存放多个值。Bash Shell只支持一维数组。初始化时不需要定义数组大小(与PHP类似)。
@@ -129,3 +198,49 @@ Bash支持关联数组，可以使用任意的字符串、或者整数作为下�
     array_name["index"]
 
 ##### 获取数组中的所有元素
+使用@或者\*可以获取数组中的所有元素。
+
+    #!/bin/bash
+
+    my_array[0]=A
+    my_array[1]=B
+    my_array[2]=C
+    my_array[3]=D
+
+    echo "数组的元素为：${my_array[*]}"
+    echo "数组的元素为：${my_array[@]}"
+
+
+    #!/bin/bash
+
+    declare -A site
+    site["google"]="www.google.com"
+    site["taobao"]="www.taobao.com"
+    site["runoob"]="www.runoob.com"
+
+    echo "数组的元素为：${site[*]}"
+    echo "数组的元素为：${site[@]}"
+
+在数组前加上一个感叹号!可以获取数组的所有键。
+
+    declare -A site
+    site["google"]="www.google.com"
+    site["taobao"]="www.taobao.com"
+    site["runoob"]="www.runoob.com"
+
+    echo "数组的键为：${!site[*]}"
+    echo "数组的键为：${!site[@]}"
+
+__获取数组的长度__
+获取数组长度的方法与获取字符串长度的方法相同，实例如下：
+
+    #!/bin/bash
+    
+    my_array[0]=A
+    my_array[1]=B
+    my_array[2]=C
+    my_array[3]=D
+
+    echo "数组元素个数为：${#my_array[@]}"
+    echo "数组元素个数为：${#my_array[*]}"
+    
