@@ -19,3 +19,5 @@ QSPI和SPI在协议上的区别，第一个就是QSPI比SPI多了两条数据线
 SPI包含CLK，MISO，MOSI，CS四条线，且是全双工通信。
 QSPI包含CLK，四条I/O，和CS线，数据线同一时刻只能是输入或者输出的一种，属于半双工通信。
 QSPI通常是专门针对FLASH使用的，而SPI是通用的接口总线。
+
+CAN通信的基本概念
