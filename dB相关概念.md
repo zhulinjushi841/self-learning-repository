@@ -2,7 +2,7 @@
  * @Author: Jerome 841682441@qq.com
  * @Date: 2022-11-18 21:08:18
  * @LastEditors: Jerome 841682441@qq.com
- * @LastEditTime: 2022-11-25 16:36:35
+ * @LastEditTime: 2022-11-25 16:38:40
  * @FilePath: \self-learning-repository\dB相关概念.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -16,7 +16,7 @@
 
 #### dB相关概念
 
-3dB在功率图或者误码率图中经常出现，下降3dB指的是功率下降一半，3dB点值得就是半功率点。
+3dB在功率图或者误码率图中经常出现，下降3dB指的是功率下降一半，3dB点指的就是半功率点。
 
 +3dB指的是增大为原来的2倍，-3dB指的是下降为原来的1/2。
 
